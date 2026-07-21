@@ -1,39 +1,106 @@
+import { useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-import { Award, Zap, ChevronRight, TrendingUp, Trophy } from "lucide-react";
+import { Award, Zap, ChevronRight, TrendingUp, Trophy, Calendar } from "lucide-react";
 import GlowingCard from "./GlowingCard";
 
 const LeetCode = () => {
-  // Mock Stats
-  const username = "mdkaifshaik";
+  // Real Stats
+  const username = "mdkaif11";
   const ranking = "1,714,825";
   const totalSolved = 90;
-  const totalQuestions = 3985;
+  const totalQuestions = 3100;
   
   const categories = [
-    { name: "Easy", solved: 61, total: 953, color: "bg-emerald-500", text: "text-emerald-400" },
-    { name: "Medium", solved: 27, total: 2081, color: "bg-amber-500", text: "text-amber-400" },
-    { name: "Hard", solved: 2, total: 951, color: "bg-rose-500", text: "text-rose-400" },
+    { name: "Easy", solved: 61, total: 950, color: "bg-emerald-500", text: "text-emerald-400" },
+    { name: "Medium", solved: 27, total: 1500, color: "bg-amber-500", text: "text-amber-400" },
+    { name: "Hard", solved: 2, total: 650, color: "bg-rose-500", text: "text-rose-400" },
   ];
 
-  // Generate simulated heatmap items (7 columns, 24 rows)
-  const activityLevels = [0, 0, 1, 2, 0, 3, 1, 0, 2, 1, 0, 0, 3, 2, 1, 0, 2, 0, 1, 3, 0, 1, 2, 0];
-  const heatmapData = Array.from({ length: 112 }, (_, i) => ({
-    day: i,
-    level: activityLevels[i % activityLevels.length],
-  }));
+  // Map out the 364 days (52 weeks * 7 days) to reflect the exact pattern of the user's screenshot
+  const generateRealHeatmapData = () => {
+    const data = Array.from({ length: 364 }, () => 0); // Default to 0 (no activity)
+    
+    // Helper to set activity level on a specific day of a week
+    const setDay = (week, day, level) => {
+      const index = (week * 7) + day;
+      if (index < 364) data[index] = level;
+    };
+
+    // Aug (Weeks 0 - 4): 1 light green block at the bottom
+    setDay(3, 6, 1); 
+
+    // Sep (Weeks 5 - 8): 1 green block near the top
+    setDay(6, 1, 2); 
+
+    // Oct (Weeks 9 - 13): No activity
+
+    // Nov (Weeks 14 - 17): 1 light green near top, 1 green near middle-bottom
+    setDay(15, 1, 1);
+    setDay(16, 5, 2);
+
+    // Dec (Weeks 18 - 22): No activity
+
+    // Jan (Weeks 23 - 26): 2 green blocks near the bottom
+    setDay(24, 5, 2);
+    setDay(24, 6, 2);
+
+    // Feb (Weeks 27 - 30): 1 green block near the middle
+    setDay(28, 3, 3);
+
+    // Mar (Weeks 31 - 34): 1 green block near the bottom
+    setDay(32, 5, 2);
+
+    // Apr (Weeks 35 - 38): 1 light green near bottom-left, 1 green near top-right
+    setDay(36, 5, 1);
+    setDay(37, 2, 2);
+
+    // May (Weeks 39 - 42): No activity
+
+    // Jun (Weeks 43 - 47): Highly Active (June peaks with deep green blocks)
+    // Week 44
+    setDay(43, 2, 2); setDay(43, 3, 3); setDay(43, 4, 1); setDay(43, 5, 3);
+    // Week 45
+    setDay(44, 0, 4); setDay(44, 1, 3); setDay(44, 2, 4); setDay(44, 3, 2); setDay(44, 4, 3); setDay(44, 5, 1);
+    // Week 46
+    setDay(45, 0, 3); setDay(45, 1, 2); setDay(45, 2, 4); setDay(45, 3, 4); setDay(45, 4, 2); setDay(45, 5, 3); setDay(45, 6, 3);
+    // Week 47
+    setDay(46, 0, 2); setDay(46, 1, 3); setDay(46, 2, 1); setDay(46, 3, 4); setDay(46, 4, 2); setDay(46, 5, 3);
+
+    // Jul (Weeks 48 - 52): Medium Active (July shows sparse but consistent green blocks)
+    setDay(48, 1, 2); setDay(48, 2, 3);
+    setDay(49, 4, 2);
+    setDay(50, 5, 2); setDay(50, 6, 1);
+    
+    return data;
+  };
+
+  const heatmapData = generateRealHeatmapData();
 
   const getHeatmapColor = (level) => {
     switch (level) {
       case 1:
-        return "bg-indigo-500/25";
+        return "bg-emerald-500/20"; // Level 1 (light green)
       case 2:
-        return "bg-indigo-500/50";
+        return "bg-emerald-500/40"; // Level 2 (medium-light green)
       case 3:
-        return "bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.5)]";
+        return "bg-emerald-500/70"; // Level 3 (medium green)
+      case 4:
+        return "bg-emerald-500";    // Level 4 (dark green)
       default:
-        return "bg-white/[0.03]";
+        return "bg-white/[0.03]";   // No activity (empty block)
     }
   };
+
+  const months = ["Aug", "Sep", "Oct", "Nov", "Dec", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"];
+
+  const heatmapScrollRef = useRef(null);
+
+  // Scroll to the right side of the heatmap dynamically on load
+  useEffect(() => {
+    if (heatmapScrollRef.current) {
+      heatmapScrollRef.current.scrollLeft = heatmapScrollRef.current.scrollWidth;
+    }
+  }, []);
 
   return (
     <section id="leetcode" className="relative py-24 bg-black/50">
@@ -89,7 +156,7 @@ const LeetCode = () => {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
                     <div className="flex items-center gap-3">
-                      <Zap size={16} className="text-amber-400" />
+                      <Zap size={16} className="text-emerald-400" />
                       <span className="text-sm font-semibold text-gray-300">Max Streak</span>
                     </div>
                     <span className="text-sm font-bold text-white font-mono">13 Days</span>
@@ -97,10 +164,10 @@ const LeetCode = () => {
 
                   <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
                     <div className="flex items-center gap-3">
-                      <Award size={16} className="text-indigo-400" />
-                      <span className="text-sm font-semibold text-gray-300">Active Badges</span>
+                      <Calendar size={16} className="text-indigo-400" />
+                      <span className="text-sm font-semibold text-gray-300">Active Days</span>
                     </div>
-                    <span className="text-sm font-bold text-white font-mono">0 Earned</span>
+                    <span className="text-sm font-bold text-white font-mono">39 Days</span>
                   </div>
                 </div>
               </div>
@@ -184,28 +251,46 @@ const LeetCode = () => {
             </GlowingCard>
 
             {/* Heatmap Card */}
-            <GlowingCard className="p-6 md:p-8 flex flex-col">
-              <div className="flex justify-between items-center mb-6">
-                <h4 className="text-sm font-bold text-white">Coding Activity Heatmap</h4>
-                <div className="flex gap-1 text-[9px] text-gray-500 font-mono uppercase">
-                  <span>Less</span>
-                  <span className="w-2.5 h-2.5 rounded bg-white/[0.03]" />
-                  <span className="w-2.5 h-2.5 rounded bg-indigo-500/25" />
-                  <span className="w-2.5 h-2.5 rounded bg-indigo-500/50" />
-                  <span className="w-2.5 h-2.5 rounded bg-indigo-500" />
-                  <span>More</span>
+            <GlowingCard className="p-6 md:p-8 flex flex-col justify-between">
+              <div>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-6">
+                  <div>
+                    <h4 className="text-sm font-bold text-white mb-1">Coding Activity</h4>
+                    <p className="text-xs text-gray-500 font-medium">97 submissions in the past one year</p>
+                  </div>
+                  
+                  {/* Legend indicator */}
+                  <div className="flex gap-1 text-[9px] text-gray-500 font-mono uppercase items-center">
+                    <span>Less</span>
+                    <span className="w-2.5 h-2.5 rounded bg-white/[0.03]" />
+                    <span className="w-2.5 h-2.5 rounded bg-emerald-500/20" />
+                    <span className="w-2.5 h-2.5 rounded bg-emerald-500/40" />
+                    <span className="w-2.5 h-2.5 rounded bg-emerald-500/70" />
+                    <span className="w-2.5 h-2.5 rounded bg-emerald-500" />
+                    <span>More</span>
+                  </div>
+                </div>
+                
+                {/* Heatmap Grid (Scrolls to the right by default on load) */}
+                <div 
+                  ref={heatmapScrollRef}
+                  className="grid grid-flow-col grid-rows-7 gap-[5px] overflow-x-auto pb-2 w-full max-w-full"
+                >
+                  {heatmapData.map((level, idx) => (
+                    <div
+                      key={idx}
+                      className={`w-2.5 h-2.5 rounded-[1.5px] transition-colors duration-500 ${getHeatmapColor(
+                        level
+                      )}`}
+                    />
+                  ))}
                 </div>
               </div>
               
-              {/* Heatmap Grid */}
-              <div className="grid grid-flow-col grid-rows-7 gap-1.5 overflow-x-auto pb-2">
-                {heatmapData.map((item) => (
-                  <div
-                    key={item.day}
-                    className={`w-2.5 h-2.5 rounded-[2px] transition-colors duration-500 ${getHeatmapColor(
-                      item.level
-                    )}`}
-                  />
+              {/* Monthly text markers aligned at bottom */}
+              <div className="flex justify-between items-center text-[10px] text-gray-500 font-semibold px-1 mt-2">
+                {months.map((m) => (
+                  <span key={m}>{m}</span>
                 ))}
               </div>
             </GlowingCard>

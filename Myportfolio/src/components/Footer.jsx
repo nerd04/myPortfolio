@@ -1,37 +1,21 @@
-import { Github, Linkedin, Instagram, Briefcase } from "lucide-react";
+import { Github, Linkedin, Instagram } from "lucide-react";
 
 const socialLinks = [
   {
     name: "LinkedIn",
-    href: "https://www.linkedin.com",
+    href: "https://www.linkedin.com/in/md-kaif-a417203a9/",
     icon: <Linkedin size={20} />,
     color: "hover:text-blue-400 hover:border-blue-400/30 hover:bg-blue-400/5",
   },
   {
     name: "GitHub",
-    href: "https://github.com",
+    href: "https://github.com/nerd04",
     icon: <Github size={20} />,
     color: "hover:text-gray-200 hover:border-gray-200/30 hover:bg-gray-200/5",
   },
   {
-    name: "LeetCode",
-    href: "https://leetcode.com",
-    icon: (
-      <svg
-        viewBox="0 0 24 24"
-        width="20"
-        height="20"
-        fill="currentColor"
-        className="w-5 h-5"
-      >
-        <path d="M13.483 0a1.374 1.374 0 0 0-.961.414l-9.777 9.778a1.375 1.375 0 0 0 0 1.942l4.87 4.87a1.378 1.378 0 0 0 1.951-.01l9.785-9.766a1.372 1.372 0 0 0 0-1.942l-4.9-4.9A1.376 1.376 0 0 0 13.483 0zm.082 2.507 3.516 3.516-8.29 8.271-3.517-3.517zm-4.74 11.399 2.779 2.774 2.107-2.119-.467-.467a1.374 1.374 0 0 0-1.945 0l-.497.497-.467-.467a1.374 1.374 0 0 0-1.945 0l-.497.497-.07-.071zm4.195-2.09 1.156-1.16 3.516 3.516-1.156 1.16zm-5.656 4.741a2.748 2.748 0 0 1 0-3.885l.07-.07 3.885 3.885-.07.07a2.747 2.747 0 0 1-3.885 0z" />
-      </svg>
-    ),
-    color: "hover:text-amber-500 hover:border-amber-500/30 hover:bg-amber-500/5",
-  },
-  {
     name: "X",
-    href: "https://x.com",
+    href: "https://x.com/Md27906661",
     icon: (
       <svg
         viewBox="0 0 24 24"
@@ -47,15 +31,9 @@ const socialLinks = [
   },
   {
     name: "Instagram",
-    href: "https://instagram.com",
+    href: "https://www.instagram.com/mohammadkaif1751/",
     icon: <Instagram size={20} />,
     color: "hover:text-pink-400 hover:border-pink-400/30 hover:bg-pink-400/5",
-  },
-  {
-    name: "Naukri",
-    href: "https://www.naukri.com",
-    icon: <Briefcase size={20} />,
-    color: "hover:text-teal-400 hover:border-teal-400/30 hover:bg-teal-400/5",
   },
 ];
 

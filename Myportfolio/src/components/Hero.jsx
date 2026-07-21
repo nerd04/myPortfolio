@@ -15,14 +15,14 @@ const Hero = () => {
   useEffect(() => {
     const interval = setInterval(() => {
       setRoleIndex((prev) => (prev + 1) % roles.length);
-    }, 3000);
+    }, 3200);
     return () => clearInterval(interval);
   }, []);
 
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center pt-24 pb-16 overflow-hidden"
+      className="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden"
     >
       {/* Mesh Grid Backdrop */}
       <div className="grid-bg" />
@@ -31,6 +31,28 @@ const Hero = () => {
       {/* Decorative Floating Blobs */}
       <div className="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-indigo-500/10 blur-[80px] pointer-events-none animate-pulse duration-[8s]" />
       <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-purple-500/10 blur-[100px] pointer-events-none animate-pulse duration-[12s]" />
+
+      {/* Abstract Blueprint Geometry Art */}
+      <div className="absolute right-[-12%] top-[8%] w-[650px] h-[650px] opacity-15 pointer-events-none hidden lg:block z-0 select-none">
+        <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full animate-[spin_90s_linear_infinite]">
+          <circle cx="100" cy="100" r="90" stroke="url(#indigo-purple-grad)" strokeWidth="0.5" strokeDasharray="3 3" />
+          <circle cx="100" cy="100" r="70" stroke="url(#indigo-purple-grad)" strokeWidth="1" />
+          <circle cx="100" cy="100" r="50" stroke="url(#indigo-purple-grad)" strokeWidth="0.5" strokeDasharray="6 2" />
+          <path d="M10 100 H190" stroke="url(#indigo-purple-grad)" strokeWidth="0.25" />
+          <path d="M100 10 V190" stroke="url(#indigo-purple-grad)" strokeWidth="0.25" />
+          <ellipse cx="100" cy="100" rx="95" ry="32" stroke="url(#indigo-purple-grad)" strokeWidth="0.75" transform="rotate(35 100 100)" />
+          <ellipse cx="100" cy="100" rx="95" ry="32" stroke="url(#indigo-purple-grad)" strokeWidth="0.75" transform="rotate(-35 100 100)" />
+          <ellipse cx="100" cy="100" rx="95" ry="15" stroke="url(#indigo-purple-grad)" strokeWidth="0.5" transform="rotate(75 100 100)" />
+          <ellipse cx="100" cy="100" rx="95" ry="15" stroke="url(#indigo-purple-grad)" strokeWidth="0.5" transform="rotate(-75 100 100)" />
+          <defs>
+            <linearGradient id="indigo-purple-grad" x1="0" y1="0" x2="200" y2="200">
+              <stop offset="0%" stopColor="#6366f1" />
+              <stop offset="50%" stopColor="#a855f7" />
+              <stop offset="100%" stopColor="#ec4899" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
 
       <div className="mx-auto max-w-6xl px-6 w-full grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
         
@@ -42,7 +64,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6"
+            className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6"
           >
             <Sparkles size={12} className="animate-spin duration-3000" />
             <span>Available for Hire</span>
@@ -53,13 +75,14 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight text-white mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-white mb-6"
           >
-            Hi, I am <span className="gradient-text font-black">Md Kaif</span>
+            Hi, I am <br className="sm:hidden" />
+            <span className="gradient-text font-black">Md Kaif</span>
             <br />
-            <span className="text-xl sm:text-2xl md:text-3xl font-medium text-gray-400 mt-2 block">
+            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-400 mt-3 block leading-normal">
               I specialize in crafting{" "}
-              <span className="inline-block relative min-w-[200px] sm:min-w-[300px] text-left">
+              <span className="inline-block relative min-w-[280px] sm:min-w-[340px] md:min-w-[400px] h-[1.3em] align-top text-center lg:text-left">
                 <AnimatePresence mode="wait">
                   <motion.span
                     key={roles[roleIndex]}
@@ -67,7 +90,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
                     transition={{ duration: 0.4 }}
-                    className="gradient-text-indigo font-bold absolute left-0"
+                    className="gradient-text-indigo font-bold absolute left-0 right-0 lg:left-0 lg:right-auto mx-auto lg:mx-0 w-full"
                   >
                     {roles[roleIndex]}
                   </motion.span>
@@ -80,7 +103,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-gray-400 text-base sm:text-lg max-w-xl mb-8 leading-relaxed"
+            className="text-gray-400 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed"
           >
             Software developer experienced in building robust backend systems and full-stack applications.
             Skilled in combining Java/Spring Boot architectures with high-fidelity React & Node.js (MERN) web applications.
@@ -121,7 +144,10 @@ const Hero = () => {
           transition={{ duration: 1, ease: "easeOut" }}
           className="lg:col-span-5 hidden lg:block"
         >
-          <div className="w-full rounded-2xl border border-white/10 bg-black/40 backdrop-blur-xl shadow-2xl overflow-hidden glass-panel">
+          <div className="w-full rounded-2xl border border-white/10 bg-black/50 backdrop-blur-xl shadow-2xl overflow-hidden glass-panel relative">
+            {/* Glow accent bar at top of card */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-linear-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
+            
             {/* Title Bar */}
             <div className="flex items-center justify-between px-5 py-3 border-b border-white/5 bg-white/[0.02]">
               <div className="flex space-x-1.5">
@@ -136,58 +162,74 @@ const Hero = () => {
               <div className="w-8" />
             </div>
 
-            {/* Code Body */}
-            <div className="p-6 font-mono text-xs sm:text-sm text-gray-300 leading-relaxed text-left overflow-x-auto">
-              <div>
-                <span className="text-indigo-400">const</span>{" "}
-                <span className="text-purple-400">developer</span> = {"{"}
+            {/* Code Body with Line Numbers */}
+            <div className="p-6 font-mono text-xs sm:text-sm text-gray-300 leading-relaxed text-left flex">
+              {/* Line numbers column */}
+              <div className="text-gray-600 text-right pr-4 select-none border-r border-white/5 flex flex-col font-bold">
+                {Array.from({ length: 15 }, (_, i) => (
+                  <span key={i}>{i + 1}</span>
+                ))}
               </div>
-              <div className="pl-4">
-                <span className="text-gray-400">name:</span>{" "}
-                <span className="text-green-300">"Md Kaif"</span>,
+
+              {/* Code lines */}
+              <div className="pl-4 overflow-x-auto flex-grow">
+                <div>
+                  <span className="text-indigo-400">const</span>{" "}
+                  <span className="text-purple-400">developer</span> = {"{"}
+                </div>
+                <div className="pl-4">
+                  <span className="text-gray-400">name:</span>{" "}
+                  <span className="text-green-300">"Md Kaif"</span>,
+                </div>
+                <div className="pl-4">
+                  <span className="text-gray-400">coreStack:</span>{" "}
+                  <span className="text-green-300">"Java + MERN Stack"</span>,
+                </div>
+                <div className="pl-4">
+                  <span className="text-gray-400">technologies:</span> [
+                </div>
+                <div className="pl-8 text-indigo-300">
+                  "Java", "Spring Boot", "React.js",
+                </div>
+                <div className="pl-8 text-indigo-300">
+                  "Node.js", "Express.js", "MySQL",
+                </div>
+                <div className="pl-8 text-indigo-300">
+                  "MongoDB", "Python (basics)"
+                </div>
+                <div className="pl-4">],</div>
+                <div className="pl-4">
+                  <span className="text-gray-400">leetcodeDSASolved:</span>{" "}
+                  <span className="text-orange-400">"150+"</span>,
+                </div>
+                <div className="pl-4">
+                  <span className="text-gray-400">passionateAbout:</span>{" "}
+                  <span className="text-green-300">"Backend Systems & REST APIs"</span>
+                </div>
+                <div>{"};"}</div>
+                <div className="mt-2">
+                  <span className="text-indigo-400">const</span>{" "}
+                  <span className="text-purple-400">sayHello</span> = () =&gt; {"{"}
+                </div>
+                <div className="pl-4 text-gray-400">
+                  console.<span className="text-blue-400">log</span>(
+                  <span className="text-green-300">`Let's construct scalable systems!`</span>
+                  );
+                </div>
+                <div>{"};"}</div>
               </div>
-              <div className="pl-4">
-                <span className="text-gray-400">coreStack:</span>{" "}
-                <span className="text-green-300">"Java + MERN Stack"</span>,
-              </div>
-              <div className="pl-4">
-                <span className="text-gray-400">technologies:</span> [
-              </div>
-              <div className="pl-8 text-indigo-300">
-                "Java", "Spring Boot", "React.js",
-              </div>
-              <div className="pl-8 text-indigo-300">
-                "Node.js", "Express.js", "MySQL",
-              </div>
-              <div className="pl-8 text-indigo-300">
-                "MongoDB", "Python (basics)"
-              </div>
-              <div className="pl-4">],</div>
-              <div className="pl-4">
-                <span className="text-gray-400">leetcodeDSASolved:</span>{" "}
-                <span className="text-orange-400">"150+"</span>,
-              </div>
-              <div className="pl-4">
-                <span className="text-gray-400">passionateAbout:</span>{" "}
-                <span className="text-green-300">"Backend Systems & REST APIs"</span>
-              </div>
-              <div>{"};"}</div>
-              <div className="mt-4">
-                <span className="text-indigo-400">const</span>{" "}
-                <span className="text-purple-400">sayHello</span> = () =&gt; {"{"}
-              </div>
-              <div className="pl-4 text-gray-400">
-                console.<span className="text-blue-400">log</span>(
-                <span className="text-green-300">`Let's construct scalable backend systems!`</span>
-                );
-              </div>
-              <div>{"};"}</div>
             </div>
             
             {/* Visual bottom tab */}
-            <div className="px-5 py-2.5 border-t border-white/5 bg-white/[0.01] flex items-center space-x-3 text-xs text-indigo-400/70 font-mono">
-              <Code2 size={14} />
-              <span>Modular & clean developer architectures</span>
+            <div className="px-5 py-2.5 border-t border-white/5 bg-white/[0.01] flex items-center justify-between text-xs text-indigo-400/70 font-mono">
+              <div className="flex items-center space-x-2">
+                <Code2 size={14} />
+                <span>Modular & clean architecture</span>
+              </div>
+              <div className="flex items-center space-x-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
+                <span className="text-[10px] text-gray-500 font-bold uppercase">Online</span>
+              </div>
             </div>
           </div>
         </motion.div>

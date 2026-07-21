@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Code, Layout, Server, Settings } from "lucide-react";
+import { Code, Layout, Server, Settings, Globe, GitFork, Cpu, Terminal } from "lucide-react";
 import GlowingCard from "./GlowingCard";
 
 const skillCategories = [
@@ -7,45 +7,62 @@ const skillCategories = [
     title: "Programming Languages",
     icon: <Code size={20} className="text-indigo-400" />,
     skills: [
-      { name: "Java (Core & Advanced)", level: 90 },
-      { name: "JavaScript (ES6+)", level: 85 },
-      { name: "SQL", level: 88 },
-      { name: "Python (basics)", level: 70 },
+      { name: "Java (Core & Advanced)", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
+      { name: "JavaScript (ES6+)", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+      { name: "SQL", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "Python", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
     ],
   },
   {
     title: "Backend & Databases",
     icon: <Server size={20} className="text-purple-400" />,
     skills: [
-      { name: "Spring Boot / Spring MVC", level: 88 },
-      { name: "Node.js / Express.js", level: 85 },
-      { name: "MySQL / Relational DBs", level: 85 },
-      { name: "MongoDB & Redis (basics)", level: 80 },
+      { name: "Spring Boot / MVC", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+      { name: "Node.js / Express.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+      { name: "MySQL / Relational DBs", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" },
+      { name: "MongoDB & Redis", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
     ],
   },
   {
     title: "Web & Frontend",
     icon: <Layout size={20} className="text-sky-400" />,
     skills: [
-      { name: "React.js", level: 85 },
-      { name: "Tailwind CSS", level: 90 },
-      { name: "HTML5 / CSS3", level: 95 },
-      { name: "RESTful API Integration", level: 90 },
+      { name: "React.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+      { name: "Tailwind CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
+      { name: "HTML5 / CSS3", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" },
+      { name: "RESTful API Integration", iconUrl: "api" },
     ],
   },
   {
     title: "Tools, Platforms & Concepts",
     icon: <Settings size={20} className="text-teal-400" />,
     skills: [
-      { name: "Data Structures & Algorithms", level: 85 },
-      { name: "Git & GitHub Versioning", level: 88 },
-      { name: "Postman & Docker (basics)", level: 85 },
-      { name: "OOP / DBMS / OS Concepts", level: 90 },
+      { name: "Data Structures & Algos", iconUrl: "algo" },
+      { name: "Git & GitHub Versioning", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
+      { name: "Postman & Docker", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
+      { name: "OOP / DBMS / OS Concepts", iconUrl: "concepts" },
     ],
   },
 ];
 
-// Animation variant for staggered reveals
+// Helper to render official brand logo image or conceptual Lucide SVG icon
+const renderSkillIcon = (icon) => {
+  if (icon.startsWith("http")) {
+    return <img src={icon} alt="" className="w-5 h-5 object-contain select-none" />;
+  }
+  switch (icon) {
+    case "api":
+      return <Globe size={18} className="text-sky-400" />;
+    case "algo":
+      return <GitFork size={18} className="text-indigo-400 rotate-90" />;
+    case "concepts":
+      return <Cpu size={18} className="text-teal-400" />;
+    default:
+      return <Terminal size={18} className="text-gray-400" />;
+  }
+};
+
+// Animation variants for staggered reveals
 const containerVariants = {
   hidden: {},
   visible: {
@@ -101,12 +118,12 @@ const Skills = () => {
         >
           {skillCategories.map((cat, catIdx) => (
             <motion.div key={catIdx} variants={itemVariants}>
-              <GlowingCard className="h-full p-6 md:p-8 flex flex-col justify-between">
+              <GlowingCard className="h-full p-6 md:p-8 flex flex-col justify-between !border-white/15 hover:!border-indigo-500/40">
                 <div>
                   
                   {/* Category Header */}
-                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/5">
-                    <div className="p-2 rounded-lg bg-white/[0.03] border border-white/5">
+                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
+                    <div className="p-2 rounded-lg bg-white/[0.03] border border-white/10">
                       {cat.icon}
                     </div>
                     <h3 className="text-xl font-bold text-white">
@@ -114,26 +131,19 @@ const Skills = () => {
                     </h3>
                   </div>
 
-                  {/* Skills List */}
-                  <div className="space-y-5">
+                  {/* Skills Grid with Brand Logos */}
+                  <div className="flex flex-wrap gap-3">
                     {cat.skills.map((skill, skillIdx) => (
-                      <div key={skillIdx} className="space-y-2">
-                        <div className="flex justify-between items-center text-sm font-semibold">
-                          <span className="text-gray-300">{skill.name}</span>
-                          <span className="text-indigo-400 font-mono">{skill.level}%</span>
+                      <div
+                        key={skillIdx}
+                        className="group relative flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-white/15 bg-white/[0.02] hover:bg-white/[0.04] hover:border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 cursor-default"
+                      >
+                        <div className="flex items-center justify-center w-5 h-5 transition-transform duration-300 group-hover:scale-110">
+                          {renderSkillIcon(skill.iconUrl)}
                         </div>
-                        
-                        {/* Progress Bar Container */}
-                        <div className="h-2 w-full bg-white/[0.04] rounded-full overflow-hidden border border-white/5">
-                          {/* Inner animated bar */}
-                          <motion.div
-                            initial={{ width: 0 }}
-                            whileInView={{ width: `${skill.level}%` }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                            className="h-full rounded-full bg-linear-to-r from-indigo-500 to-purple-600 shadow-[0_0_8px_rgba(99,102,241,0.5)]"
-                          />
-                        </div>
+                        <span className="text-xs sm:text-sm font-semibold text-gray-300 group-hover:text-white transition-colors duration-300">
+                          {skill.name}
+                        </span>
                       </div>
                     ))}
                   </div>
