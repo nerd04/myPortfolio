@@ -4,6 +4,30 @@ import { ExternalLink, Github } from "lucide-react";
 import GlowingCard from "./GlowingCard";
 
 const projects = [
+    {
+    title: "WeLearn – Interactive LMS Platform",
+    desc: "Double-sided video learning platform featuring secure cookie-based session auth, Cloudinary-powered video uploads, and role-based curriculum hubs.",
+    tech: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS"],
+    liveUrl: "https://lms-sy9t.vercel.app",
+    githubUrl: "https://github.com/nerd04/lms",
+    type: "Full-Stack Web Application",
+    icon: (
+      <svg className="w-20 h-20 text-purple-400/80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Computer Screen */}
+        <rect x="15" y="22" width="70" height="46" rx="5" stroke="currentColor" strokeWidth="1.5" />
+        {/* Stand */}
+        <path d="M40 78 H60" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+        <path d="M50 68 V78" stroke="currentColor" strokeWidth="2" />
+        {/* Play Button Inside Screen */}
+        <path d="M46 37 L58 45 L46 53 Z" fill="currentColor" />
+        {/* Academic Cap Floating at Top Right */}
+        <path d="M68 20 L80 14 L92 20 L80 26 Z" fill="currentColor" fillOpacity="0.2" stroke="currentColor" strokeWidth="1" />
+        <path d="M74 23 V30 C74 33 86 33 86 30 V23" stroke="currentColor" strokeWidth="1" />
+        <path d="M92 20 V27" stroke="currentColor" strokeWidth="0.75" />
+      </svg>
+    ),
+    gradient: "from-purple-500/10 via-blue-500/5 to-transparent",
+  },
   {
     title: "Book My Ticket – Online Booking System",
     desc: "Enterprise movie booking portal featuring concurrent seat locks, Razorpay gateway integration, and role-based panels.",
