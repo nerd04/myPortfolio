@@ -79,15 +79,15 @@ const LeetCode = () => {
   const getHeatmapColor = (level) => {
     switch (level) {
       case 1:
-        return "bg-emerald-500/20"; // Level 1 (light green)
+        return "bg-[#3f5f55]"; // Level 1 (solid medium sage)
       case 2:
-        return "bg-emerald-500/40"; // Level 2 (medium-light green)
+        return "bg-[#678b7f]"; // Level 2 (medium-light sage)
       case 3:
-        return "bg-emerald-500/70"; // Level 3 (medium green)
+        return "bg-sage-light"; // Level 3 (bright sage-light)
       case 4:
-        return "bg-emerald-500";    // Level 4 (dark green)
+        return "bg-copper";     // Level 4 (bright copper highlight)
       default:
-        return "bg-white/[0.03]";   // No activity (empty block)
+        return "bg-white/[0.08]";   // No activity (visible empty block)
     }
   };
 
@@ -103,8 +103,8 @@ const LeetCode = () => {
   }, []);
 
   return (
-    <section id="leetcode" className="relative py-24 bg-black/50">
-      <div className="absolute inset-x-0 bottom-0 -z-10 h-96 bg-purple-500/5 blur-[120px] pointer-events-none" />
+    <section id="leetcode" className="relative py-24 bg-deep">
+      <div className="absolute inset-x-0 bottom-0 -z-10 h-96 bg-sage/5 blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-6xl px-6">
         
@@ -116,10 +116,10 @@ const LeetCode = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-5xl font-black gradient-text mb-4">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
             LeetCode Profile
           </h2>
-          <p className="text-gray-400 max-w-md mx-auto">
+          <p className="text-white font-medium max-w-md mx-auto">
             Problem-solving metrics, algorithmic milestones, and platform performance.
           </p>
         </motion.div>
@@ -134,7 +134,7 @@ const LeetCode = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-4 flex"
           >
-            <GlowingCard className="w-full p-6 md:p-8 flex flex-col justify-between h-full">
+            <GlowingCard className="w-full p-6 md:p-8 flex flex-col justify-between h-full bg-black/35 !border-white/15">
               <div>
                 {/* Username Header */}
                 <div className="flex items-center justify-between mb-8">
@@ -142,30 +142,30 @@ const LeetCode = () => {
                     <h3 className="text-xl font-bold text-white mb-1">
                       MD KAIF
                     </h3>
-                    <span className="text-xs text-indigo-400 font-mono flex items-center gap-1">
+                    <span className="text-xs text-white font-bold font-mono flex items-center gap-1">
                       Rank #{ranking}
-                      <TrendingUp size={12} />
+                      <TrendingUp size={12} className="text-copper animate-pulse" />
                     </span>
                   </div>
-                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-amber-500 to-orange-600 flex items-center justify-center text-white shadow-lg shadow-orange-500/10">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-copper to-copper/80 flex items-center justify-center text-white shadow-lg shadow-copper/20">
                     <Trophy size={20} />
                   </div>
                 </div>
 
                 {/* Platform Milestones */}
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                  <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.05] border border-white/15">
                     <div className="flex items-center gap-3">
-                      <Zap size={16} className="text-emerald-400" />
-                      <span className="text-sm font-semibold text-gray-300">Max Streak</span>
+                      <Zap size={16} className="text-sage-light" />
+                      <span className="text-sm font-semibold text-white">Max Streak</span>
                     </div>
                     <span className="text-sm font-bold text-white font-mono">13 Days</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.02] border border-white/5">
+                  <div className="flex items-center justify-between p-3.5 rounded-xl bg-white/[0.05] border border-white/15">
                     <div className="flex items-center gap-3">
-                      <Calendar size={16} className="text-indigo-400" />
-                      <span className="text-sm font-semibold text-gray-300">Active Days</span>
+                      <Calendar size={16} className="text-copper" />
+                      <span className="text-sm font-semibold text-white">Active Days</span>
                     </div>
                     <span className="text-sm font-bold text-white font-mono">39 Days</span>
                   </div>
@@ -177,7 +177,7 @@ const LeetCode = () => {
                 href={`https://leetcode.com/u/mdkaif11`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-8 group flex items-center justify-center gap-1.5 py-3 rounded-xl border border-indigo-500/20 hover:border-indigo-500/40 bg-indigo-500/10 hover:bg-indigo-500/20 text-xs font-semibold text-indigo-300 hover:text-white transition-all duration-300"
+                className="mt-8 group flex items-center justify-center gap-1.5 py-3 rounded-xl border border-white/30 hover:border-copper bg-white/5 hover:bg-copper/20 text-xs font-semibold text-white transition-all duration-300"
               >
                 <span>Visit LeetCode Profile</span>
                 <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
@@ -194,7 +194,7 @@ const LeetCode = () => {
             className="lg:col-span-8 flex flex-col gap-8 justify-between"
           >
             {/* Stats Breakdown Card */}
-            <GlowingCard className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8">
+            <GlowingCard className="p-6 md:p-8 flex flex-col md:flex-row items-center gap-8 bg-black/35 !border-white/15">
               
               {/* Circular SVG Chart */}
               <div className="relative flex-shrink-0 w-32 h-32 flex items-center justify-center">
@@ -203,7 +203,7 @@ const LeetCode = () => {
                     cx="50"
                     cy="50"
                     r="40"
-                    className="stroke-white/[0.03]"
+                    className="stroke-white/[0.05]"
                     strokeWidth="8"
                     fill="transparent"
                   />
@@ -211,7 +211,7 @@ const LeetCode = () => {
                     cx="50"
                     cy="50"
                     r="40"
-                    className="stroke-indigo-500"
+                    className="stroke-copper"
                     strokeWidth="8"
                     fill="transparent"
                     strokeDasharray={2 * Math.PI * 40}
@@ -221,7 +221,7 @@ const LeetCode = () => {
                 </svg>
                 <div className="absolute flex flex-col items-center justify-center">
                   <span className="text-2xl font-black text-white font-mono">{totalSolved}</span>
-                  <span className="text-[10px] text-gray-500 font-bold uppercase tracking-wider">Solved</span>
+                  <span className="text-[10px] text-white/80 font-bold uppercase tracking-wider">Solved</span>
                 </div>
               </div>
 
@@ -229,20 +229,20 @@ const LeetCode = () => {
               <div className="flex-grow w-full space-y-4">
                 {categories.map((cat) => (
                   <div key={cat.name} className="space-y-1.5">
-                    <div className="flex justify-between items-center text-xs font-semibold">
-                      <span className="text-gray-400">{cat.name} Tier</span>
-                      <span className="font-mono text-gray-300">
-                        {cat.solved} <span className="text-gray-600">/ {cat.total}</span>
+                    <div className="flex justify-between items-center text-xs font-bold">
+                      <span className="text-white">{cat.name} Tier</span>
+                      <span className="font-mono text-white">
+                        {cat.solved} <span className="text-white/60">/ {cat.total}</span>
                       </span>
                     </div>
                     {/* Linear bar */}
-                    <div className="h-1.5 w-full bg-white/[0.03] rounded-full overflow-hidden border border-white/5">
+                    <div className="h-1.5 w-full bg-white/[0.05] rounded-full overflow-hidden border border-white/15">
                       <motion.div
                         initial={{ width: 0 }}
                         whileInView={{ width: `${(cat.solved / cat.total) * 100}%` }}
                         viewport={{ once: true }}
                         transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-                        className={`h-full rounded-full ${cat.color}`}
+                        className={`h-full rounded-full ${cat.name === "Easy" ? "bg-sage-light" : cat.name === "Medium" ? "bg-copper" : "bg-white"}`}
                       />
                     </div>
                   </div>
@@ -251,22 +251,22 @@ const LeetCode = () => {
             </GlowingCard>
 
             {/* Heatmap Card */}
-            <GlowingCard className="p-6 md:p-8 flex flex-col justify-between">
+            <GlowingCard className="p-6 md:p-8 flex flex-col justify-between bg-black/35 !border-white/15">
               <div>
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-6">
                   <div>
                     <h4 className="text-sm font-bold text-white mb-1">Coding Activity</h4>
-                    <p className="text-xs text-gray-500 font-medium">97 submissions in the past one year</p>
+                    <p className="text-xs text-white/90 font-semibold">97 submissions in the past one year</p>
                   </div>
                   
                   {/* Legend indicator */}
-                  <div className="flex gap-1 text-[9px] text-gray-500 font-mono uppercase items-center">
+                  <div className="flex gap-1 text-[9px] text-white/90 font-mono uppercase items-center">
                     <span>Less</span>
-                    <span className="w-2.5 h-2.5 rounded bg-white/[0.03]" />
-                    <span className="w-2.5 h-2.5 rounded bg-emerald-500/20" />
-                    <span className="w-2.5 h-2.5 rounded bg-emerald-500/40" />
-                    <span className="w-2.5 h-2.5 rounded bg-emerald-500/70" />
-                    <span className="w-2.5 h-2.5 rounded bg-emerald-500" />
+                    <span className="w-2.5 h-2.5 rounded bg-white/[0.08]" />
+                    <span className="w-2.5 h-2.5 rounded bg-[#3f5f55]" />
+                    <span className="w-2.5 h-2.5 rounded bg-[#678b7f]" />
+                    <span className="w-2.5 h-2.5 rounded bg-sage-light" />
+                    <span className="w-2.5 h-2.5 rounded bg-copper" />
                     <span>More</span>
                   </div>
                 </div>
@@ -288,7 +288,7 @@ const LeetCode = () => {
               </div>
               
               {/* Monthly text markers aligned at bottom */}
-              <div className="flex justify-between items-center text-[10px] text-gray-500 font-semibold px-1 mt-2">
+              <div className="flex justify-between items-center text-[10px] text-white/90 font-semibold px-1 mt-2">
                 {months.map((m) => (
                   <span key={m}>{m}</span>
                 ))}

@@ -36,14 +36,14 @@ const Navbar = () => {
       <div
         className={`mx-auto max-w-6xl rounded-full pointer-events-auto transition-all duration-500 flex items-center justify-between px-6 py-3 md:px-8 ${
           scrolled
-            ? "bg-black/50 border border-white/10 backdrop-blur-xl shadow-xl shadow-indigo-950/10"
+            ? "bg-oatmeal/85 border border-sage-light/25 backdrop-blur-xl shadow-lg shadow-deep/5"
             : "bg-transparent border border-transparent"
         }`}
       >
         {/* Logo */}
         <a href="#home" className="flex items-center space-x-2 group">
-          <span className="font-extrabold text-xl md:text-2xl tracking-wider text-white">
-            KAIF<span className="text-indigo-500 group-hover:text-purple-400 transition-colors">.DEV</span>
+          <span className="font-extrabold text-xl md:text-2xl tracking-wider text-deep">
+            KAIF<span className="text-copper group-hover:text-sage transition-colors">.DEV</span>
           </span>
         </a>
 
@@ -53,7 +53,7 @@ const Navbar = () => {
             <a
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-300 hover:text-white px-4 py-2 rounded-full transition-all duration-300 relative hover:bg-white/5"
+              className="text-sm font-semibold text-deep/80 hover:text-deep px-4 py-2 rounded-full transition-all duration-300 relative hover:bg-sage/10"
             >
               {link.name}
             </a>
@@ -64,7 +64,7 @@ const Navbar = () => {
         <div className="hidden lg:block">
           <a
             href="#contact"
-            className="px-5 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-indigo-600/80 border border-indigo-400/30 rounded-full hover:bg-indigo-600 transition-all duration-300 shadow-md shadow-indigo-500/10"
+            className="px-5 py-2 text-xs font-semibold uppercase tracking-wider text-oatmeal bg-copper border border-copper/10 rounded-full hover:bg-copper/90 transition-all duration-300 shadow-md shadow-copper/10"
           >
             Hire Me
           </a>
@@ -73,7 +73,7 @@ const Navbar = () => {
         {/* Mobile menu trigger */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="lg:hidden text-gray-300 hover:text-white focus:outline-none p-1.5 rounded-full hover:bg-white/5 transition-colors"
+          className="lg:hidden text-deep hover:text-copper focus:outline-none p-1.5 rounded-full hover:bg-sage/10 transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={22} /> : <Menu size={22} />}
@@ -83,24 +83,24 @@ const Navbar = () => {
       {/* Mobile Glass Menu overlay */}
       {isOpen && (
         <div className="fixed inset-0 top-[76px] z-40 lg:hidden px-4 pointer-events-auto">
-          <div className="w-full rounded-3xl bg-black/90 border border-white/10 backdrop-blur-2xl p-8 flex flex-col space-y-6 shadow-2xl animate-in fade-in slide-in-from-top-5 duration-300">
+          <div className="w-full rounded-3xl bg-oatmeal/95 border border-sage-light/20 backdrop-blur-2xl p-8 flex flex-col space-y-6 shadow-2xl animate-in fade-in slide-in-from-top-5 duration-300">
             <div className="flex flex-col space-y-4">
               {navLinks.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className="text-lg font-medium text-gray-300 hover:text-white px-4 py-3 rounded-2xl hover:bg-white/5 transition-all duration-300"
+                  className="text-lg font-semibold text-deep/85 hover:text-deep px-4 py-3 rounded-2xl hover:bg-sage/10 transition-all duration-300"
                 >
                   {link.name}
                 </a>
               ))}
             </div>
-            <hr className="border-white/10" />
+            <hr className="border-deep/10" />
             <a
               href="#contact"
               onClick={() => setIsOpen(false)}
-              className="w-full text-center py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-2xl transition-all duration-300 shadow-lg shadow-indigo-500/25"
+              className="w-full text-center py-4 bg-copper hover:bg-copper/90 text-oatmeal font-semibold rounded-2xl transition-all duration-300 shadow-lg shadow-copper/25"
             >
               Hire Me
             </a>

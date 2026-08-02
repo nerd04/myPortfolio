@@ -20,8 +20,8 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="relative py-24 bg-black/40">
-      <div className="absolute inset-x-0 top-0 -z-10 h-96 bg-purple-500/5 blur-[120px] pointer-events-none" />
+    <section id="experience" className="relative py-24 bg-sage-light/10">
+      <div className="absolute inset-x-0 top-0 -z-10 h-96 bg-sage/5 blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-6xl px-6">
         <motion.div
@@ -34,13 +34,13 @@ const Experience = () => {
           <h2 className="text-3xl md:text-5xl font-black gradient-text mb-4">
             Professional Experience
           </h2>
-          <p className="text-gray-400 max-w-md mx-auto">
+          <p className="text-deep/75 max-w-md mx-auto font-medium">
             Practical development training, architectural design milestones, and hands-on full-stack contributions.
           </p>
         </motion.div>
 
         {/* Timeline Container */}
-        <div className="relative border-l border-white/10 ml-4 md:ml-12 pl-6 md:pl-10 space-y-12">
+        <div className="relative border-l border-deep/10 ml-4 md:ml-12 pl-6 md:pl-10 space-y-12">
           
           {/* Animated vertical gradient path tracker overlay */}
           <div className="absolute top-0 bottom-0 left-0 w-[2px] timeline-line origin-top pointer-events-none" />
@@ -55,41 +55,41 @@ const Experience = () => {
               className="relative"
             >
               {/* Glow Node on Timeline */}
-              <div className="absolute -left-[31px] md:-left-[47px] top-1.5 flex items-center justify-center w-4 h-4 md:w-6 md:h-6 rounded-full bg-black border-2 border-indigo-500 shadow-md shadow-indigo-500/40 z-10">
-                <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full bg-indigo-500 animate-ping duration-1000" />
+              <div className="absolute -left-[31px] md:-left-[47px] top-1.5 flex items-center justify-center w-4 h-4 md:w-6 md:h-6 rounded-full bg-oatmeal border-2 border-copper shadow-md shadow-copper/35 z-10">
+                <div className="w-1.5 h-1.5 md:w-2.5 md:h-2.5 rounded-full bg-copper animate-ping duration-1000" />
               </div>
 
               {/* Experience Card */}
-              <GlowingCard className="relative p-6 md:p-8">
+              <GlowingCard className="relative p-6 md:p-8 !border-sage-light/20 bg-white/40">
                 {/* Header Information */}
                 <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
                   <div>
-                    <h3 className="text-xl md:text-2xl font-bold text-white flex items-center gap-2">
-                      <Briefcase className="text-indigo-400" size={20} />
+                    <h3 className="text-xl md:text-2xl font-bold text-deep flex items-center gap-2">
+                      <Briefcase className="text-copper" size={20} />
                       {exp.role}
                     </h3>
-                    <span className="text-indigo-400 font-semibold mt-1 block">
+                    <span className="text-sage font-bold mt-1 block">
                       {exp.company}
                     </span>
                   </div>
                   
-                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-xs text-gray-400">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-6 text-xs text-deep/70 font-semibold">
                     <span className="flex items-center gap-1.5">
-                      <Calendar size={14} />
+                      <Calendar size={14} className="text-copper" />
                       {exp.duration}
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <MapPin size={14} />
+                      <MapPin size={14} className="text-copper" />
                       {exp.location}
                     </span>
                   </div>
                 </div>
 
                 {/* Description Bullets */}
-                <ul className="space-y-3 text-sm text-gray-300 mb-6">
+                <ul className="space-y-3 text-sm text-deep/80 font-medium mb-6">
                   {exp.desc.map((bullet, bIdx) => (
                     <li key={bIdx} className="flex items-start gap-2.5 leading-relaxed">
-                      <CheckCircle2 size={16} className="text-indigo-500 mt-1 flex-shrink-0" />
+                      <CheckCircle2 size={16} className="text-copper mt-1 flex-shrink-0" />
                       <span>{bullet}</span>
                     </li>
                   ))}
@@ -100,7 +100,7 @@ const Experience = () => {
                   {exp.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-3 py-1 rounded-full text-xs font-semibold text-indigo-300 bg-indigo-500/10 border border-indigo-500/20"
+                      className="px-3 py-1 rounded-full text-xs font-semibold text-sage bg-sage/10 border border-sage/20"
                     >
                       {tag}
                     </span>

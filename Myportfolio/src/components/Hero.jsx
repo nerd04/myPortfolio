@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Download, ArrowRight, Code2, Sparkles, Terminal } from "lucide-react";
+import { Download, ArrowRight, Sparkles, Camera, MapPin } from "lucide-react";
+import profileImg from "../assets/profile.png";
 
 const roles = [
   "Java & Spring Boot Developer",
@@ -29,26 +30,26 @@ const Hero = () => {
       <div className="ambient-glow" />
 
       {/* Decorative Floating Blobs */}
-      <div className="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-indigo-500/10 blur-[80px] pointer-events-none animate-pulse duration-[8s]" />
-      <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-purple-500/10 blur-[100px] pointer-events-none animate-pulse duration-[12s]" />
+      <div className="absolute top-1/4 left-10 w-72 h-72 rounded-full bg-sage/5 blur-[80px] pointer-events-none animate-pulse duration-[8s]" />
+      <div className="absolute bottom-1/4 right-10 w-96 h-96 rounded-full bg-copper/5 blur-[100px] pointer-events-none animate-pulse duration-[12s]" />
 
       {/* Abstract Blueprint Geometry Art */}
-      <div className="absolute right-[-12%] top-[8%] w-[650px] h-[650px] opacity-15 pointer-events-none hidden lg:block z-0 select-none">
+      <div className="absolute right-[-12%] top-[8%] w-[650px] h-[650px] opacity-20 pointer-events-none hidden lg:block z-0 select-none">
         <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full animate-[spin_90s_linear_infinite]">
-          <circle cx="100" cy="100" r="90" stroke="url(#indigo-purple-grad)" strokeWidth="0.5" strokeDasharray="3 3" />
-          <circle cx="100" cy="100" r="70" stroke="url(#indigo-purple-grad)" strokeWidth="1" />
-          <circle cx="100" cy="100" r="50" stroke="url(#indigo-purple-grad)" strokeWidth="0.5" strokeDasharray="6 2" />
-          <path d="M10 100 H190" stroke="url(#indigo-purple-grad)" strokeWidth="0.25" />
-          <path d="M100 10 V190" stroke="url(#indigo-purple-grad)" strokeWidth="0.25" />
-          <ellipse cx="100" cy="100" rx="95" ry="32" stroke="url(#indigo-purple-grad)" strokeWidth="0.75" transform="rotate(35 100 100)" />
-          <ellipse cx="100" cy="100" rx="95" ry="32" stroke="url(#indigo-purple-grad)" strokeWidth="0.75" transform="rotate(-35 100 100)" />
-          <ellipse cx="100" cy="100" rx="95" ry="15" stroke="url(#indigo-purple-grad)" strokeWidth="0.5" transform="rotate(75 100 100)" />
-          <ellipse cx="100" cy="100" rx="95" ry="15" stroke="url(#indigo-purple-grad)" strokeWidth="0.5" transform="rotate(-75 100 100)" />
+          <circle cx="100" cy="100" r="90" stroke="url(#sage-copper-grad)" strokeWidth="0.5" strokeDasharray="3 3" />
+          <circle cx="100" cy="100" r="70" stroke="url(#sage-copper-grad)" strokeWidth="1" />
+          <circle cx="100" cy="100" r="50" stroke="url(#sage-copper-grad)" strokeWidth="0.5" strokeDasharray="6 2" />
+          <path d="M10 100 H190" stroke="url(#sage-copper-grad)" strokeWidth="0.25" />
+          <path d="M100 10 V190" stroke="url(#sage-copper-grad)" strokeWidth="0.25" />
+          <ellipse cx="100" cy="100" rx="95" ry="32" stroke="url(#sage-copper-grad)" strokeWidth="0.75" transform="rotate(35 100 100)" />
+          <ellipse cx="100" cy="100" rx="95" ry="32" stroke="url(#sage-copper-grad)" strokeWidth="0.75" transform="rotate(-35 100 100)" />
+          <ellipse cx="100" cy="100" rx="95" ry="15" stroke="url(#sage-copper-grad)" strokeWidth="0.5" transform="rotate(75 100 100)" />
+          <ellipse cx="100" cy="100" rx="95" ry="15" stroke="url(#sage-copper-grad)" strokeWidth="0.5" transform="rotate(-75 100 100)" />
           <defs>
-            <linearGradient id="indigo-purple-grad" x1="0" y1="0" x2="200" y2="200">
-              <stop offset="0%" stopColor="#6366f1" />
-              <stop offset="50%" stopColor="#a855f7" />
-              <stop offset="100%" stopColor="#ec4899" />
+            <linearGradient id="sage-copper-grad" x1="0" y1="0" x2="200" y2="200">
+              <stop offset="0%" stopColor="#3f5f55" />
+              <stop offset="50%" stopColor="#a6b89a" />
+              <stop offset="100%" stopColor="#c07a4b" />
             </linearGradient>
           </defs>
         </svg>
@@ -64,9 +65,9 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-semibold uppercase tracking-wider mb-6"
+            className="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full border border-sage/30 bg-sage/10 text-sage text-xs font-bold uppercase tracking-wider mb-6"
           >
-            <Sparkles size={12} className="animate-spin duration-3000" />
+            <Sparkles size={12} className="animate-pulse" />
             <span>Available for Hire</span>
           </motion.div>
 
@@ -75,12 +76,12 @@ const Hero = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-white mb-6"
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.08] tracking-tight text-deep mb-6"
           >
             Hi, I am <br className="sm:hidden" />
             <span className="gradient-text font-black">Md Kaif</span>
             <br />
-            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-gray-400 mt-3 block leading-normal">
+            <span className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-medium text-deep/60 mt-3 block leading-normal">
               I specialize in crafting{" "}
               <span className="inline-block relative min-w-[280px] sm:min-w-[340px] md:min-w-[400px] h-[1.3em] align-top text-center lg:text-left">
                 <AnimatePresence mode="wait">
@@ -90,7 +91,7 @@ const Hero = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: -15 }}
                     transition={{ duration: 0.4 }}
-                    className="gradient-text-indigo font-bold absolute left-0 right-0 lg:left-0 lg:right-auto mx-auto lg:mx-0 w-full"
+                    className="text-copper font-bold absolute left-0 right-0 lg:left-0 lg:right-auto mx-auto lg:mx-0 w-full"
                   >
                     {roles[roleIndex]}
                   </motion.span>
@@ -103,7 +104,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-gray-400 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed"
+            className="text-deep/80 text-sm sm:text-base md:text-lg max-w-xl mb-8 leading-relaxed font-medium"
           >
             Software developer experienced in building robust backend systems and full-stack applications.
             Skilled in combining Java/Spring Boot architectures with high-fidelity React & Node.js (MERN) web applications.
@@ -120,7 +121,7 @@ const Hero = () => {
             <a
               href="/resume.pdf"
               download="Md_Kaif_Resume.pdf"
-              className="group flex items-center justify-center space-x-2 px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-2xl transition-all duration-300 shadow-lg shadow-indigo-500/20 hover:scale-[1.02] active:scale-[0.98]"
+              className="group flex items-center justify-center space-x-2 px-8 py-4 bg-copper hover:bg-copper/90 text-oatmeal font-semibold rounded-2xl transition-all duration-300 shadow-lg shadow-copper/25 hover:scale-[1.02] active:scale-[0.98]"
             >
               <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
               <span>Download Resume</span>
@@ -129,7 +130,7 @@ const Hero = () => {
             {/* View Work Button */}
             <a
               href="#projects"
-              className="group flex items-center justify-center space-x-2 px-8 py-4 border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] text-white font-semibold rounded-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              className="group flex items-center justify-center space-x-2 px-8 py-4 border border-deep/15 hover:border-deep/30 bg-deep/5 hover:bg-deep/10 text-deep font-semibold rounded-2xl transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
             >
               <span>View Projects</span>
               <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
@@ -137,101 +138,48 @@ const Hero = () => {
           </motion.div>
         </div>
 
-        {/* Right Column: Code Window Mockup */}
+        {/* Right Column: Premium Photo Exhibit Frame */}
         <motion.div
-          initial={{ opacity: 0, x: 50, scale: 0.95 }}
-          animate={{ opacity: 1, x: 0, scale: 1 }}
-          transition={{ duration: 1, ease: "easeOut" }}
-          className="lg:col-span-5 hidden lg:block"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
+          className="lg:col-span-5 w-full flex justify-center lg:block mt-8 lg:mt-0 relative"
         >
-          <div className="w-full rounded-2xl border border-white/10 bg-black/50 backdrop-blur-xl shadow-2xl overflow-hidden glass-panel relative">
-            {/* Glow accent bar at top of card */}
-            <div className="absolute top-0 left-0 right-0 h-[1px] bg-linear-to-r from-transparent via-indigo-500 to-transparent opacity-50" />
-            
-            {/* Title Bar */}
-            <div className="flex items-center justify-between px-5 py-3 border-b border-white/5 bg-white/[0.02]">
-              <div className="flex space-x-1.5">
-                <span className="w-3 h-3 rounded-full bg-red-500/70" />
-                <span className="w-3 h-3 rounded-full bg-yellow-500/70" />
-                <span className="w-3 h-3 rounded-full bg-green-500/70" />
+          {/* Framed profile layout styling */}
+          <motion.div 
+            animate={{ y: [0, -8, 0] }}
+            transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+            className="relative w-72 h-72 sm:w-80 sm:h-80 md:w-[350px] md:h-[350px] rounded-3xl p-3 bg-white/40 border border-sage-light/20 backdrop-blur-md shadow-2xl flex items-center justify-center"
+          >
+            {/* Fine copper border highlight overlay inside */}
+            <div className="absolute inset-2 rounded-2xl border border-copper/30 pointer-events-none z-10" />
+
+            {/* Profile image with custom clip-path / border-radius */}
+            <div className="w-full h-full rounded-2xl overflow-hidden relative select-none">
+              <img 
+                src={profileImg} 
+                alt="Md Kaif - Professional Portrait" 
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              />
+              
+              {/* Modern glassmorphic tag overlay at the bottom */}
+              <div className="absolute bottom-3 left-3 right-3 py-2 px-3 rounded-xl bg-deep/80 border border-white/10 backdrop-blur-md flex items-center justify-between text-[11px] text-oatmeal font-mono z-20">
+                <div className="flex items-center gap-1.5">
+                  <Camera size={12} className="text-copper" />
+                  <span>Md Kaif</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <MapPin size={11} className="text-copper" />
+                  <span>Bengaluru, IN</span>
+                </div>
               </div>
-              <div className="flex items-center space-x-2 text-[11px] text-gray-500 font-mono">
-                <Terminal size={12} />
-                <span>Developer.jsx</span>
-              </div>
-              <div className="w-8" />
             </div>
 
-            {/* Code Body with Line Numbers */}
-            <div className="p-6 font-mono text-xs sm:text-sm text-gray-300 leading-relaxed text-left flex">
-              {/* Line numbers column */}
-              <div className="text-gray-600 text-right pr-4 select-none border-r border-white/5 flex flex-col font-bold">
-                {Array.from({ length: 15 }, (_, i) => (
-                  <span key={i}>{i + 1}</span>
-                ))}
-              </div>
-
-              {/* Code lines */}
-              <div className="pl-4 overflow-x-auto flex-grow">
-                <div>
-                  <span className="text-indigo-400">const</span>{" "}
-                  <span className="text-purple-400">developer</span> = {"{"}
-                </div>
-                <div className="pl-4">
-                  <span className="text-gray-400">name:</span>{" "}
-                  <span className="text-green-300">"Md Kaif"</span>,
-                </div>
-                <div className="pl-4">
-                  <span className="text-gray-400">coreStack:</span>{" "}
-                  <span className="text-green-300">"Java + MERN Stack"</span>,
-                </div>
-                <div className="pl-4">
-                  <span className="text-gray-400">technologies:</span> [
-                </div>
-                <div className="pl-8 text-indigo-300">
-                  "Java", "Spring Boot", "React.js",
-                </div>
-                <div className="pl-8 text-indigo-300">
-                  "Node.js", "Express.js", "MySQL",
-                </div>
-                <div className="pl-8 text-indigo-300">
-                  "MongoDB", "Python (basics)"
-                </div>
-                <div className="pl-4">],</div>
-                <div className="pl-4">
-                  <span className="text-gray-400">leetcodeDSASolved:</span>{" "}
-                  <span className="text-orange-400">"150+"</span>,
-                </div>
-                <div className="pl-4">
-                  <span className="text-gray-400">passionateAbout:</span>{" "}
-                  <span className="text-green-300">"Backend Systems & REST APIs"</span>
-                </div>
-                <div>{"};"}</div>
-                <div className="mt-2">
-                  <span className="text-indigo-400">const</span>{" "}
-                  <span className="text-purple-400">sayHello</span> = () =&gt; {"{"}
-                </div>
-                <div className="pl-4 text-gray-400">
-                  console.<span className="text-blue-400">log</span>(
-                  <span className="text-green-300">`Let's construct scalable systems!`</span>
-                  );
-                </div>
-                <div>{"};"}</div>
-              </div>
+            {/* Small decorative copper seal block */}
+            <div className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-copper border-2 border-oatmeal flex items-center justify-center text-oatmeal text-[10px] font-bold shadow-md z-30 select-none">
+              ★
             </div>
-            
-            {/* Visual bottom tab */}
-            <div className="px-5 py-2.5 border-t border-white/5 bg-white/[0.01] flex items-center justify-between text-xs text-indigo-400/70 font-mono">
-              <div className="flex items-center space-x-2">
-                <Code2 size={14} />
-                <span>Modular & clean architecture</span>
-              </div>
-              <div className="flex items-center space-x-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping" />
-                <span className="text-[10px] text-gray-500 font-bold uppercase">Online</span>
-              </div>
-            </div>
-          </div>
+          </motion.div>
         </motion.div>
 
       </div>

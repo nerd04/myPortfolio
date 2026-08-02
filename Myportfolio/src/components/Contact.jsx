@@ -54,8 +54,8 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="relative py-24 bg-black/40">
-      <div className="absolute inset-x-0 top-0 -z-10 h-96 bg-purple-500/5 blur-[120px] pointer-events-none" />
+    <section id="contact" className="relative py-24 bg-oatmeal">
+      <div className="absolute inset-x-0 top-0 -z-10 h-96 bg-sage/5 blur-[120px] pointer-events-none" />
 
       <div className="mx-auto max-w-6xl px-6">
         
@@ -70,7 +70,7 @@ const Contact = () => {
           <h2 className="text-3xl md:text-5xl font-black gradient-text mb-4">
             Get In Touch
           </h2>
-          <p className="text-gray-400 max-w-md mx-auto">
+          <p className="text-deep/75 max-w-md mx-auto font-medium">
             Have a project in mind, want to discuss a role, or just say hello? Drop a message below!
           </p>
         </motion.div>
@@ -85,11 +85,11 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5 flex"
           >
-            <GlowingCard className="w-full p-6 md:p-8 flex flex-col justify-between h-full">
+            <GlowingCard className="w-full p-6 md:p-8 flex flex-col justify-between h-full bg-white/40 border border-sage-light/20">
               <div className="space-y-8">
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-2">Let's talk!</h3>
-                  <p className="text-sm text-gray-400 leading-relaxed">
+                  <h3 className="text-2xl font-bold text-deep mb-2">Let's talk!</h3>
+                  <p className="text-sm text-deep/80 leading-relaxed font-medium">
                     I am open to full-time remote or hybrid opportunities, contract projects, or collaborative developer discussions.
                   </p>
                 </div>
@@ -98,14 +98,14 @@ const Contact = () => {
                   {/* Gmail Entry */}
                   <a
                     href="mailto:mdkaifshaik11196@gmail.com"
-                    className="group flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-indigo-500/20 hover:bg-white/[0.04] transition-all duration-300"
+                    className="group flex items-center gap-4 p-4 rounded-2xl bg-white/20 border border-deep/10 hover:border-copper/35 hover:bg-white/50 transition-all duration-300"
                   >
-                    <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/15 group-hover:scale-110 transition-transform">
+                    <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-sage/10 text-sage border border-sage/15 group-hover:scale-110 transition-transform">
                       <Mail size={20} />
                     </div>
                     <div>
-                      <span className="text-xs text-gray-500 font-medium block">Gmail Address</span>
-                      <span className="text-sm font-semibold text-gray-200 group-hover:text-white transition-colors">
+                      <span className="text-xs text-deep/50 font-bold block">Gmail Address</span>
+                      <span className="text-sm font-semibold text-deep hover:text-copper transition-colors">
                         mdkaifshaik11196@gmail.com
                       </span>
                     </div>
@@ -114,27 +114,27 @@ const Contact = () => {
                   {/* Phone Entry */}
                   <a
                     href="tel:+919019724256"
-                    className="group flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5 hover:border-indigo-500/20 hover:bg-white/[0.04] transition-all duration-300"
+                    className="group flex items-center gap-4 p-4 rounded-2xl bg-white/20 border border-deep/10 hover:border-copper/35 hover:bg-white/50 transition-all duration-300"
                   >
-                    <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/15 group-hover:scale-110 transition-transform">
+                    <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-sage/10 text-sage border border-sage/15 group-hover:scale-110 transition-transform">
                       <Phone size={20} />
                     </div>
                     <div>
-                      <span className="text-xs text-gray-500 font-medium block">Phone Number</span>
-                      <span className="text-sm font-semibold text-gray-200 group-hover:text-white transition-colors">
+                      <span className="text-xs text-deep/50 font-bold block">Phone Number</span>
+                      <span className="text-sm font-semibold text-deep hover:text-copper transition-colors">
                         +91 9019724256
                       </span>
                     </div>
                   </a>
 
                   {/* Location Entry */}
-                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/[0.02] border border-white/5">
-                    <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 border border-purple-500/15">
+                  <div className="flex items-center gap-4 p-4 rounded-2xl bg-white/20 border border-deep/10">
+                    <div className="flex items-center justify-center w-11 h-11 rounded-xl bg-copper/10 text-copper border border-copper/15">
                       <MapPin size={20} />
                     </div>
                     <div>
-                      <span className="text-xs text-gray-500 font-medium block">Current Location</span>
-                      <span className="text-sm font-semibold text-gray-200">
+                      <span className="text-xs text-deep/50 font-bold block">Current Location</span>
+                      <span className="text-sm font-semibold text-deep">
                         Bengaluru, Karnataka, India
                       </span>
                     </div>
@@ -154,7 +154,7 @@ const Contact = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-7 flex"
           >
-            <GlowingCard className="w-full p-6 md:p-8 h-full">
+            <GlowingCard className="w-full p-6 md:p-8 h-full bg-white/40 border border-sage-light/20">
               <AnimatePresence mode="wait">
                 {status === "success" ? (
                   <motion.div
@@ -163,14 +163,14 @@ const Contact = () => {
                     exit={{ opacity: 0 }}
                     className="flex flex-col items-center justify-center text-center h-full min-h-[300px] py-12"
                   >
-                    <CheckCircle2 size={56} className="text-green-400 mb-4 animate-bounce" />
-                    <h3 className="text-2xl font-bold text-white mb-2">Message Sent!</h3>
-                    <p className="text-gray-400 text-sm max-w-sm">
+                    <CheckCircle2 size={56} className="text-sage mb-4 animate-bounce" />
+                    <h3 className="text-2xl font-bold text-deep mb-2">Message Sent!</h3>
+                    <p className="text-deep/80 text-sm max-w-sm font-medium">
                       Thank you for reaching out. I've received your message and will respond shortly to your email.
                     </p>
                     <button
                       onClick={() => setStatus("idle")}
-                      className="mt-6 px-6 py-2.5 rounded-xl border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] text-xs font-semibold text-white transition-all duration-300"
+                      className="mt-6 px-6 py-2.5 rounded-xl border border-deep/15 hover:border-deep/30 bg-deep/5 hover:bg-deep/10 text-xs font-semibold text-deep transition-all duration-300"
                     >
                       Send Another Message
                     </button>
@@ -187,10 +187,10 @@ const Contact = () => {
                       {/* Name Input */}
                       <div className="relative">
                         <label
-                          className={`absolute left-4 transition-all duration-300 pointer-events-none text-xs font-semibold ${
+                          className={`absolute left-4 transition-all duration-300 pointer-events-none text-xs font-bold ${
                             focusedField === "name" || formData.name
-                              ? "-top-2.5 bg-black px-2 text-indigo-400 scale-95"
-                              : "top-4 text-gray-500"
+                              ? "-top-2.5 bg-oatmeal px-2 text-copper scale-95 border border-sage-light/10 rounded"
+                              : "top-4 text-deep/50"
                           }`}
                         >
                           Your Name
@@ -203,17 +203,17 @@ const Contact = () => {
                           onFocus={() => setFocusedField("name")}
                           onBlur={() => setFocusedField(null)}
                           required
-                          className="w-full px-4 py-4 rounded-xl border border-white/10 bg-white/[0.02] focus:bg-white/[0.04] focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20 text-white text-sm outline-none transition-all duration-300"
+                          className="w-full px-4 py-4 rounded-xl border border-deep/10 bg-white/30 focus:bg-white/50 focus:border-copper focus:ring-1 focus:ring-copper/20 text-deep text-sm outline-none transition-all duration-300 font-semibold"
                         />
                       </div>
 
                       {/* Email Input */}
                       <div className="relative">
                         <label
-                          className={`absolute left-4 transition-all duration-300 pointer-events-none text-xs font-semibold ${
+                          className={`absolute left-4 transition-all duration-300 pointer-events-none text-xs font-bold ${
                             focusedField === "email" || formData.email
-                              ? "-top-2.5 bg-black px-2 text-indigo-400 scale-95"
-                              : "top-4 text-gray-500"
+                              ? "-top-2.5 bg-oatmeal px-2 text-copper scale-95 border border-sage-light/10 rounded"
+                              : "top-4 text-deep/50"
                           }`}
                         >
                           Email Address
@@ -226,17 +226,17 @@ const Contact = () => {
                           onFocus={() => setFocusedField("email")}
                           onBlur={() => setFocusedField(null)}
                           required
-                          className="w-full px-4 py-4 rounded-xl border border-white/10 bg-white/[0.02] focus:bg-white/[0.04] focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20 text-white text-sm outline-none transition-all duration-300"
+                          className="w-full px-4 py-4 rounded-xl border border-deep/10 bg-white/30 focus:bg-white/50 focus:border-copper focus:ring-1 focus:ring-copper/20 text-deep text-sm outline-none transition-all duration-300 font-semibold"
                         />
                       </div>
 
                       {/* Message Input */}
                       <div className="relative">
                         <label
-                          className={`absolute left-4 transition-all duration-300 pointer-events-none text-xs font-semibold ${
+                          className={`absolute left-4 transition-all duration-300 pointer-events-none text-xs font-bold ${
                             focusedField === "message" || formData.message
-                              ? "-top-2.5 bg-black px-2 text-indigo-400 scale-95"
-                              : "top-4 text-gray-500"
+                              ? "-top-2.5 bg-oatmeal px-2 text-copper scale-95 border border-sage-light/10 rounded"
+                              : "top-4 text-deep/50"
                           }`}
                         >
                           Your Message
@@ -249,14 +249,14 @@ const Contact = () => {
                           onBlur={() => setFocusedField(null)}
                           required
                           rows="5"
-                          className="w-full px-4 py-4 rounded-xl border border-white/10 bg-white/[0.02] focus:bg-white/[0.04] focus:border-indigo-500 focus:ring-1 focus:ring-indigo-500/20 text-white text-sm outline-none transition-all duration-300 resize-none"
+                          className="w-full px-4 py-4 rounded-xl border border-deep/10 bg-white/30 focus:bg-white/50 focus:border-copper focus:ring-1 focus:ring-copper/20 text-deep text-sm outline-none transition-all duration-300 resize-none font-semibold"
                         />
                       </div>
                     </div>
 
                     {/* Status Feedback / Errors */}
                     {status === "error" && (
-                      <div className="flex items-center gap-2 text-xs text-red-400 font-semibold mt-4">
+                      <div className="flex items-center gap-2 text-xs text-red-500 font-bold mt-4">
                         <AlertCircle size={16} />
                         <span>Failed to send. Please verify internet connection and try again.</span>
                       </div>
@@ -266,7 +266,7 @@ const Contact = () => {
                     <button
                       type="submit"
                       disabled={status === "loading"}
-                      className="group flex items-center justify-center gap-2 w-full py-4 mt-6 bg-indigo-600 hover:bg-indigo-700 disabled:bg-indigo-700/50 text-white font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-indigo-500/10 hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
+                      className="group flex items-center justify-center gap-2 w-full py-4 mt-6 bg-copper hover:bg-copper/90 disabled:bg-copper/50 text-oatmeal font-semibold rounded-xl transition-all duration-300 shadow-lg shadow-copper/10 hover:scale-[1.01] active:scale-[0.99] cursor-pointer"
                     >
                       {status === "loading" ? (
                         <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />

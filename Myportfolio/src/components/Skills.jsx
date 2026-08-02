@@ -5,7 +5,7 @@ import GlowingCard from "./GlowingCard";
 const skillCategories = [
   {
     title: "Programming Languages",
-    icon: <Code size={20} className="text-indigo-400" />,
+    icon: <Code size={20} className="text-copper" />,
     skills: [
       { name: "Java (Core & Advanced)", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" },
       { name: "JavaScript (ES6+)", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
@@ -15,7 +15,7 @@ const skillCategories = [
   },
   {
     title: "Backend & Databases",
-    icon: <Server size={20} className="text-purple-400" />,
+    icon: <Server size={20} className="text-sage" />,
     skills: [
       { name: "Spring Boot / MVC", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
       { name: "Node.js / Express.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
@@ -25,7 +25,7 @@ const skillCategories = [
   },
   {
     title: "Web & Frontend",
-    icon: <Layout size={20} className="text-sky-400" />,
+    icon: <Layout size={20} className="text-copper" />,
     skills: [
       { name: "React.js", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
       { name: "Tailwind CSS", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" },
@@ -35,7 +35,7 @@ const skillCategories = [
   },
   {
     title: "Tools, Platforms & Concepts",
-    icon: <Settings size={20} className="text-teal-400" />,
+    icon: <Settings size={20} className="text-sage" />,
     skills: [
       { name: "Data Structures & Algos", iconUrl: "algo" },
       { name: "Git & GitHub Versioning", iconUrl: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" },
@@ -52,13 +52,13 @@ const renderSkillIcon = (icon) => {
   }
   switch (icon) {
     case "api":
-      return <Globe size={18} className="text-sky-400" />;
+      return <Globe size={18} className="text-sage" />;
     case "algo":
-      return <GitFork size={18} className="text-indigo-400 rotate-90" />;
+      return <GitFork size={18} className="text-copper rotate-90" />;
     case "concepts":
-      return <Cpu size={18} className="text-teal-400" />;
+      return <Cpu size={18} className="text-sage" />;
     default:
-      return <Terminal size={18} className="text-gray-400" />;
+      return <Terminal size={18} className="text-deep/50" />;
   }
 };
 
@@ -86,9 +86,9 @@ const itemVariants = {
 
 const Skills = () => {
   return (
-    <section id="skills" className="relative py-24 bg-black/30">
+    <section id="skills" className="relative py-24 bg-oatmeal">
       {/* Background ambient lighting */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-full max-w-4xl h-96 bg-indigo-500/5 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-full max-w-4xl h-96 bg-sage/5 blur-[150px] pointer-events-none" />
 
       <div className="mx-auto max-w-6xl px-6">
         
@@ -103,7 +103,7 @@ const Skills = () => {
           <h2 className="text-3xl md:text-5xl font-black gradient-text mb-4">
             Technical Arsenal
           </h2>
-          <p className="text-gray-400 max-w-md mx-auto">
+          <p className="text-deep/75 max-w-md mx-auto font-medium">
             A comprehensive breakdown of the core backend frameworks, databases, frontend systems, and development tools I use.
           </p>
         </motion.div>
@@ -118,15 +118,15 @@ const Skills = () => {
         >
           {skillCategories.map((cat, catIdx) => (
             <motion.div key={catIdx} variants={itemVariants}>
-              <GlowingCard className="h-full p-6 md:p-8 flex flex-col justify-between !border-white/15 hover:!border-indigo-500/40">
+              <GlowingCard className="h-full p-6 md:p-8 flex flex-col justify-between !border-sage-light/20 hover:!border-copper/40 bg-white/40">
                 <div>
                   
                   {/* Category Header */}
-                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-white/10">
-                    <div className="p-2 rounded-lg bg-white/[0.03] border border-white/10">
+                  <div className="flex items-center gap-3 mb-6 pb-4 border-b border-deep/10">
+                    <div className="p-2 rounded-lg bg-sage/5 border border-sage/10">
                       {cat.icon}
                     </div>
-                    <h3 className="text-xl font-bold text-white">
+                    <h3 className="text-xl font-bold text-deep">
                       {cat.title}
                     </h3>
                   </div>
@@ -136,12 +136,12 @@ const Skills = () => {
                     {cat.skills.map((skill, skillIdx) => (
                       <div
                         key={skillIdx}
-                        className="group relative flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-white/15 bg-white/[0.02] hover:bg-white/[0.04] hover:border-indigo-500/30 hover:shadow-lg hover:shadow-indigo-500/5 transition-all duration-300 cursor-default"
+                        className="group relative flex items-center gap-2.5 px-4 py-2.5 rounded-xl border border-deep/10 bg-white/20 hover:bg-white/50 hover:border-copper/40 hover:shadow-lg hover:shadow-copper/5 transition-all duration-300 cursor-default"
                       >
                         <div className="flex items-center justify-center w-5 h-5 transition-transform duration-300 group-hover:scale-110">
                           {renderSkillIcon(skill.iconUrl)}
                         </div>
-                        <span className="text-xs sm:text-sm font-semibold text-gray-300 group-hover:text-white transition-colors duration-300">
+                        <span className="text-xs sm:text-sm font-semibold text-deep/80 group-hover:text-deep transition-colors duration-300">
                           {skill.name}
                         </span>
                       </div>

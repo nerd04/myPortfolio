@@ -1,11 +1,19 @@
 @import "tailwindcss";
 
+@theme {
+  --color-deep: #1f2f2b;
+  --color-sage: #3f5f55;
+  --color-sage-light: #a6b89a;
+  --color-oatmeal: #e7e4d9;
+  --color-copper: #c07a4b;
+}
+
 :root {
-  --color-bg: #030303;
-  --color-primary: #6366f1;
-  --color-secondary: #a855f7;
-  --color-text: #f3f4f6;
-  --color-muted: #9ca3af;
+  --color-bg: #e7e4d9;
+  --color-primary: #c07a4b;
+  --color-secondary: #3f5f55;
+  --color-text: #1f2f2b;
+  --color-muted: #a6b89a;
 }
 
 html {
@@ -21,11 +29,11 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #080808;
+  background: #e2ded0;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #222235;
+  background: #a6b89a;
   border-radius: 4px;
 }
 
@@ -47,11 +55,11 @@ html {
   inset: 0;
   z-index: -1;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+    linear-gradient(to right, rgba(31, 47, 43, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(31, 47, 43, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
-  mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 100%);
-  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 40%, transparent 100%);
+  mask-image: radial-gradient(ellipse at 50% 50%, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 50%, transparent 100%);
   pointer-events: none;
 }
 
@@ -63,17 +71,17 @@ html {
   height: 100vh;
   z-index: -2;
   background: 
-    radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 40%),
-    radial-gradient(circle at 90% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 40%);
+    radial-gradient(circle at 10% 20%, rgba(63, 95, 85, 0.04) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(192, 122, 75, 0.03) 0%, transparent 40%);
   pointer-events: none;
 }
 
 /* Glassmorphism custom classes */
 .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(63, 95, 85, 0.09);
 }
 
 .glass-panel-hover {
@@ -81,9 +89,9 @@ html {
 }
 
 .glass-panel-hover:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: rgba(99, 102, 241, 0.3);
-  box-shadow: 0 10px 30px -10px rgba(99, 102, 241, 0.15);
+  background: rgba(255, 255, 255, 0.5);
+  border-color: rgba(192, 122, 75, 0.3);
+  box-shadow: 0 10px 30px -10px rgba(63, 95, 85, 0.08);
 }
 
 /* Glow Border & Spotlight Effects on Cards */
@@ -91,9 +99,9 @@ html {
   position: relative;
   border-radius: 1rem;
   overflow: hidden;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: border-color 0.3s;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(63, 95, 85, 0.07);
+  transition: border-color 0.3s, background-color 0.3s;
 }
 
 .glowing-card::before {
@@ -104,7 +112,7 @@ html {
   pointer-events: none;
   background: radial-gradient(
     800px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(255, 255, 255, 0.06),
+    rgba(192, 122, 75, 0.05),
     transparent 40%
   );
   opacity: 0;
@@ -124,7 +132,7 @@ html {
   z-index: 0;
   background: radial-gradient(
     300px circle at var(--mouse-x, 0px) var(--mouse-y, 0px),
-    rgba(99, 102, 241, 0.4),
+    rgba(192, 122, 75, 0.3),
     transparent 40%
   );
   opacity: 0;
@@ -143,14 +151,14 @@ html {
 
 /* Text styles */
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 30%, #a855f7 70%, #6366f1 100%);
+  background: linear-gradient(135deg, #1f2f2b 20%, #3f5f55 60%, #c07a4b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-indigo {
-  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%);
+  background: linear-gradient(135deg, #3f5f55 0%, #c07a4b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -158,5 +166,5 @@ html {
 
 /* Timeline vertical line glow */
 .timeline-line {
-  background: linear-gradient(to bottom, transparent, var(--color-primary), var(--color-secondary), transparent);
+  background: linear-gradient(to bottom, transparent, var(--color-secondary), var(--color-primary), transparent);
 }

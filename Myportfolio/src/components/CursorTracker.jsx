@@ -91,7 +91,7 @@ const CursorTracker = () => {
     <>
       {/* Inner Dot */}
       <motion.div
-        className="fixed top-0 left-0 w-2 h-2 bg-indigo-500 rounded-full pointer-events-none z-50 mix-blend-difference"
+        className="fixed top-0 left-0 w-2 h-2 bg-copper rounded-full pointer-events-none z-50 mix-blend-difference"
         style={{
           x: cursorX,
           y: cursorY,
@@ -104,7 +104,7 @@ const CursorTracker = () => {
       
       {/* Outer Ring / Glow */}
       <motion.div
-        className="fixed top-0 left-0 rounded-full pointer-events-none z-40 border border-indigo-400/40 bg-indigo-500/5"
+        className="fixed top-0 left-0 rounded-full pointer-events-none z-40 border border-copper/40 bg-copper/5"
         style={{
           x: trailX,
           y: trailY,
@@ -116,8 +116,8 @@ const CursorTracker = () => {
         }}
         animate={{
           scale: isHovered ? 1.2 : 1,
-          borderColor: isHovered ? "rgba(168, 85, 247, 0.6)" : "rgba(99, 102, 241, 0.4)",
-          backgroundColor: isHovered ? "rgba(168, 85, 247, 0.1)" : "rgba(99, 102, 241, 0.05)",
+          borderColor: isHovered ? "rgba(63, 95, 85, 0.6)" : "rgba(192, 122, 75, 0.4)",
+          backgroundColor: isHovered ? "rgba(63, 95, 85, 0.1)" : "rgba(192, 122, 75, 0.05)",
         }}
         transition={{ type: "spring", stiffness: 200, damping: 20 }}
       />
